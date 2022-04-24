@@ -1,0 +1,15 @@
+server:
+  port: 10001  #启动端口
+spring:
+  application:
+    name: service01
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848   #配置中心
+        file-extension: yaml  #文件扩展名,dataid的名称就是application.name+file-extension,即为service01.yaml
+        namespace: 869a0c6d-267e-4aa1-96cb-552cb1632c72  #开发环境dev的id(nacos命名空间下找dev对应的id)
+        group: TEST_GROUP  #测试组
+#共享Data Id只支持DEFAULT_GROUP
+        shared-dataids: ext-config01.properties,ext-config02.propeties   #共享的Data Id
+        refreshable-dataids: ext-config01.properties   #热刷新的Data Id
